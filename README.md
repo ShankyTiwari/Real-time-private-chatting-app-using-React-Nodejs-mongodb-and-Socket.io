@@ -5,10 +5,10 @@ As the title reads, This app is private chat application built using React (vers
 This project was generated with [create-react-app](https://github.com/facebook/create-react-app) version 2.1.8.
 
 ## React Code
-Code for React application is in [React folder](https://github.com/ShankyTiwari/Real-time-private-chatting-app-using-Angular-Nodejs-mongodb-and-Socket.io/tree/master/Angular%20Application).
+Code for React application is in [React folder](https://github.com/ShankyTiwari/Real-time-private-chatting-app-using-React-Nodejs-mongodb-and-Socket.io/tree/master/React%20App).
 
 ## Nodejs API Code
-Code for Nodejs application is in [Nodejs API folder](https://github.com/ShankyTiwari/Real-time-private-chatting-app-using-Angular-Nodejs-mongodb-and-Socket.io/tree/master/Nodejs%20API).
+Code for Nodejs application is in [Nodejs API folder](https://github.com/ShankyTiwari/Real-time-private-chatting-app-using-React-Nodejs-mongodb-and-Socket.io/tree/master/Nodejs%20API).
 
 
 ## Explanation and Blog Post
