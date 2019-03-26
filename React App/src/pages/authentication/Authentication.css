@@ -1,0 +1,20 @@
+.authentication-screen {
+    padding: 15% 2% 0px 2%;
+    width:50%;
+    margin: 0px auto;
+}
+
+.auth-form {
+    padding: 5% 0% 0% 0%;
+    border-top: solid 1px #dee2e6;
+    margin-top: 2%;
+}
+
+.nav-pills .nav-link {
+    width: 50%;
+    text-align: center;
+}
+
+.auth-loading {
+    left: 0;
+}

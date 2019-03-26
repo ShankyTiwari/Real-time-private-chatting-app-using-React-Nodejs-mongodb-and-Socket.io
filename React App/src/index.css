@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.justifier {
+  padding: 20px;
+}
+
+.app-heading {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 30px;
+}
+
+.app-heading-tech {
+  font-size: 13px;
+}
+
+.app-author {
+  text-align: center;
+  font-size: 20px;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  line-height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+/* Not required for template or sticky footer method. */
+.container {
+  width: auto;
+  max-width: 80%;
+  padding: 0 15px;
+}
+
+.overlay {
+  height: 100% !important;
+  width: 100% !important;
+  background-color: rgba(255, 255, 255, 0.92);
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  padding-top: 200px;
+}
