@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
-import chatSocketServer from '../../utils/chatSocketServer';
-import chatHttpServer from '../../utils/chatHttpServer';
+import ChatSocketServer from '../../utils/ChatSocketServer';
+import ChatHttpServer from '../../utils/ChatHttpServer';
 
 import ChatList from './chat-list/ChatList';
 import Conversation from './conversation/Conversation';
@@ -20,11 +20,11 @@ class Home extends Component {
 
   logout = async () => {
     try {
-      await chatHttpServer.removeLS();
-      chatSocketServer.logout({
+      await ChatHttpServer.removeLS();
+      ChatSocketServer.logout({
         userId: this.userId
       });
-      chatSocketServer.eventEmitter.on('logout-response', (loggedOut) => {
+      ChatSocketServer.eventEmitter.on('logout-response', (loggedOut) => {
         this.props.history.push(`/`);
       });
     } catch (error) {
@@ -43,16 +43,16 @@ class Home extends Component {
   async componentDidMount() {
     try {
       this.setRenderLoadingState(true);
-      this.userId = await chatHttpServer.getUserId();
-      const response = await chatHttpServer.userSessionCheck(this.userId);
+      this.userId = await ChatHttpServer.getUserId();
+      const response = await ChatHttpServer.userSessionCheck(this.userId);
       if (response.error) {
         this.props.history.push(`/`)
       } else {
         this.setState({
           username: response.username
         });
-        chatHttpServer.setLS('username', response.username);
-        chatSocketServer.establishSocketConnection(this.userId);
+        ChatHttpServer.setLS('username', response.username);
+        ChatSocketServer.establishSocketConnection(this.userId);
       }
       this.setRenderLoadingState(false);
     } catch (error) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
-import chatHttpServer from '../../../utils/chatHttpServer';
+import ChatHttpServer from '../../../utils/ChatHttpServer';
 import './Login.css';
 
 class Login extends Component {
@@ -19,12 +19,12 @@ class Login extends Component {
     event.preventDefault();
     this.props.loadingState(true);
     try {
-      const response = await chatHttpServer.login(this.state);
+      const response = await ChatHttpServer.login(this.state);
       this.props.loadingState(false);
       if(response.error) {
         alert('Invalid login details')
       } else {
-        chatHttpServer.setLS('userid', response.userId);
+        ChatHttpServer.setLS('userid', response.userId);
         this.props.history.push(`/home`)
       }
     } catch (error) {

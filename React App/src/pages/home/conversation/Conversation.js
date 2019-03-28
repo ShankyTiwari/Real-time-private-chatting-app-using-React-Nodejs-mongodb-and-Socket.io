@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import chatHttpServer from '../../../utils/chatHttpServer';
-import chatSocketServer from '../../../utils/chatSocketServer';
+import ChatHttpServer from '../../../utils/ChatHttpServer';
+import ChatSocketServer from '../../../utils/ChatSocketServer';
 
 import './Conversation.css';
 
@@ -18,12 +18,12 @@ class Conversation extends Component {
   }
 
   componentDidMount() {
-    chatSocketServer.receiveMessage();
-    chatSocketServer.eventEmitter.on('add-message-response', this.receiveSocketMessages);
+    ChatSocketServer.receiveMessage();
+    ChatSocketServer.eventEmitter.on('add-message-response', this.receiveSocketMessages);
   }
 
   componentWillUnmount() {
-    chatSocketServer.eventEmitter.removeListener('add-message-response', this.receiveSocketMessages);
+    ChatSocketServer.eventEmitter.removeListener('add-message-response', this.receiveSocketMessages);
   }
 
   componentDidUpdate(prevProps) {
@@ -54,7 +54,7 @@ class Conversation extends Component {
   getMessages = async () => {
     try {
       const { userId, newSelectedUser} = this.props;
-      const messageResponse = await chatHttpServer.getMessages(userId,newSelectedUser.id);
+      const messageResponse = await ChatHttpServer.getMessages(userId,newSelectedUser.id);
       if (!messageResponse.error) {
         this.setState({
           conversations: messageResponse.messages,
@@ -96,7 +96,7 @@ class Conversation extends Component {
 
   sendAndUpdateMessages(message) {
     try {
-      chatSocketServer.sendMessage(message);
+      ChatSocketServer.sendMessage(message);
       this.setState({
         conversations : [...this.state.conversations, message]
       });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import chatSocketServer from '../../../utils/chatSocketServer';
+import ChatSocketServer from '../../../utils/ChatSocketServer';
 import "./ChatList.css";
 
 class ChatList extends Component {
@@ -16,12 +16,12 @@ class ChatList extends Component {
 
   componentDidMount() {
     const userId = this.props.userId;
-    chatSocketServer.getChatList(userId);
-    chatSocketServer.eventEmitter.on('chat-list-response', this.createChatListUsers);
+    ChatSocketServer.getChatList(userId);
+    ChatSocketServer.eventEmitter.on('chat-list-response', this.createChatListUsers);
   }
 
   componentWillUnmount() {
-    chatSocketServer.eventEmitter.removeListener('chat-list-response', this.createChatListUsers);
+    ChatSocketServer.eventEmitter.removeListener('chat-list-response', this.createChatListUsers);
   }
 
   createChatListUsers = (chatListResponse) => {    

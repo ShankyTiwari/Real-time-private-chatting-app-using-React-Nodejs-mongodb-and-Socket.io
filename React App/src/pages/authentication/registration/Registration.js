@@ -3,7 +3,7 @@ import { Alert, Form, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { DebounceInput } from 'react-debounce-input';
 
-import chatHttpServer from '../../../utils/chatHttpServer';
+import ChatHttpServer from '../../../utils/ChatHttpServer';
 import './Registration.css';
 
 class Registration extends Component {
@@ -21,12 +21,12 @@ class Registration extends Component {
     event.preventDefault();
     this.props.loadingState(true);
     try {
-      const response = await chatHttpServer.register(this.state);
+      const response = await ChatHttpServer.register(this.state);
       this.props.loadingState(false);
       if (response.error) {
         alert('Unable to register, try after some time.')
       } else {
-        chatHttpServer.setLS('userid', response.userId);
+        ChatHttpServer.setLS('userid', response.userId);
         this.props.history.push(`/home`);
       }
     } catch (error) {
@@ -42,7 +42,7 @@ class Registration extends Component {
       });
       this.props.loadingState(true);
       try {
-        const response = await chatHttpServer.checkUsernameAvailability(this.state.username);
+        const response = await ChatHttpServer.checkUsernameAvailability(this.state.username);
         this.props.loadingState(false);
         if(response.error) {
           this.setState({
