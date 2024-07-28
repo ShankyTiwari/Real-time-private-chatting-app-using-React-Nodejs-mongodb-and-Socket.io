@@ -1,19 +1,27 @@
-/*
-* Real time private chatting app using Angular 2, Nodejs, mongodb and Socket.io
-* @author Shashank Tiwari
-*/
 'use strict';
 const bcrypt = require('bcrypt');
 
-class PasswordHash{
+class PasswordHash {
+  constructor() {
+    this.saltRounds = 10; // Number of salt rounds for hashing
+  }
 
-	createHash(password) {
-		return bcrypt.hashSync(password, 10);
-	}
+  async createHash(password) {
+    try {
+      const salt = await bcrypt.genSalt(this.saltRounds);
+      return await bcrypt.hash(password, salt);
+    } catch (error) {
+      throw new Error('Error creating hash');
+    }
+  }
 
-	compareHash(password, hash) {
-		return bcrypt.compareSync(password, hash)
-	}
+  async compareHash(password, hash) {
+    try {
+      return await bcrypt.compare(password, hash);
+    } catch (error) {
+      throw new Error('Error comparing hash');
+    }
+  }
 }
 
 module.exports = new PasswordHash();
